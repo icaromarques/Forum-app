@@ -37,6 +37,7 @@ RUN curl --silent --show-error --location --fail --retry 3 --output /tmp/google-
 
 RUN npm install -g aurelia-cli@^1.2.0
 
+RUN npm install typings -g
 
 WORKDIR /app
 

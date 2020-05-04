@@ -1,0 +1,25 @@
+<template>
+  <require from="../../src/validar-binding-behavior"></require>
+
+  <form submit.delegate="onSubmit()" id="myform">
+    <div>
+      <label class="${validation.items['nome'].error ? 'validation-error' : ''}">
+      <div>
+        <span>Nome</span></br>
+        <span>${nome}</span>
+      </div>
+      <input type="text" value.bind="nome & validar" id="campoNome"/>
+      <span if.bind="validation.items['nome'].error" class="form-error-text"><span>Mensagem erro</span></span>
+     </div>
+     <div>
+       <label>
+       <div>
+         <span>Outro</span></br>
+         <span>${outro}</span>
+       </div>
+       <input type="text" value.bind="outro" id="campoOutro"/>
+      </div>
+   </form>
+
+  <button submit form="myform" id="botaoForm"><i class="icon-save"></i> <span>Salvar</span></button>
+</template>

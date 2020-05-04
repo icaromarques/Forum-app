@@ -1,0 +1,40 @@
+<template>
+  <div class="${style.container}" onblur.call="blur()" id="vs-ac">
+    <label for="search" class="${style.label}">${label ? label : '' }</label>
+    <input id="vs-ac-input" 
+           type="text"
+           name="search"
+           class="${style.input}"
+           value.bind="query"
+           keyup.delegate="!query.trim() || search() & debounce:300"
+           placeholder.one-way="placeholder ? placeholder : ''"
+           spellcheck="false"
+           autocomplete="off"
+           show.bind="!entity[displayProperty]"/>
+    <input id="vs-ac-selected-input"
+           type="text"
+           name="autoCompleteInput"
+           value.bind="entity[displayProperty]"
+           class="${style.input_selected}"
+           show.bind="entity[displayProperty]"
+           spellcheck="false"
+           autocomplete="off"
+           click.delegate="changeInput()" />
+    <button type="button" 
+            class="${style.close_button}" 
+            show.bind="entity[displayProperty]"
+            tabindex="-1"
+            click.delegate="reset()"></button>
+    <div class="${style.wrapper}" show.bind="isSearching">
+      <div class="${style.list_container}" class="${loading ? 'loading' : ''}">
+        <div class="${style.loader}" show.bind="loading"></div>
+        <span class="${style.empty_result}" show.bind="!loading && results.length == 0">${emptyResult}</span>
+        <ul id="vs-ac-list" class="${style.list}">
+          <li repeat.for="item of results" data-description="${item[description]}" class="${!item[statusProperty] ? style.disabled : ''}">
+            <a click.delegate="selected($event, item)" tabindex="0">${item[displayProperty]}</a> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

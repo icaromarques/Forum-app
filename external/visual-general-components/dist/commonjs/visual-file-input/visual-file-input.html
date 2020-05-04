@@ -1,0 +1,4 @@
+<template>
+  <input type="file" name="fileInput" id="file-input" class="visual-file-input" change.delegate="onSelected($event)" multiple.bind="multiSelect" files.two-way="files" ref="referenceElement"/>
+  <label for="file-input"><!--button type="button"></button--><span data-file-size.bind="fileSize">${multiSelect ? multipleFilesAmount : fileName}</span><strong t="selectFile">Selecionar arquivos...</strong></label>
+</template>

@@ -1,0 +1,15 @@
+<template>
+  <require from="./tester"></require>
+  <require from="../visual-spinner/visual-spinner"></require>
+
+  <visual-spinner loading.bind="loading" fullscreen.bind="true" ref="spinner"></visual-spinner>
+  <tester entity.two-way="entity" on-selected.call="selecionado(selected)"></tester>
+  <!--div class="caio" style="height:30vh; width:30vw; background-color:red; position:relative; margin: 1rem 0;">
+      <input type="text" style="margin: 1rem 0;">
+      <input type="text" style="margin: 1rem 0;">
+      <input type="text" disabled="true" style="margin: 1rem 0;">
+  </div-->
+
+  <button style="margin: 1rem 0;" click.delegate="removeLoader()"> click !</button>
+
+</template>

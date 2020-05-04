@@ -1,0 +1,182 @@
+div.vs-ac {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: .5rem 0;
+}
+label.vs-ac-label {
+  font-size: smaller;
+  color: #8a8a8a;
+  min-height: 1.25rem;
+}
+span.vs-ac-empty {
+  font-size: smaller;
+  padding-left: 0.5rem;
+  color: #cecece;
+}
+input.vs-ac-input {
+  padding: 0.5rem 0.5rem;
+  font-size: 0.7rem;
+  outline-color: #efefef;
+  outline-width: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+  border-radius: .2rem .2rem 0 0;
+  text-decoration: none;
+  width: -webkit-fill-available;
+  transition: background-color .1s ease;
+}
+input.vs-ac-input::-moz-focus-inner {
+ border: 0;
+}
+input.vs-ac-input::-webkit-input-placeholder { 
+  color:    #CACACA;
+}
+input.vs-ac-input:-moz-placeholder { 
+  color:    #CACACA;
+  opacity:  1;
+}
+input.vs-ac-input::-moz-placeholder { 
+ color:    #CACACA;  
+ opacity:  1;
+}
+input.vs-ac-input:-ms-input-placeholder { 
+  color:    #CACACA;  
+}
+input.vs-ac-input::-ms-input-placeholder { 
+  color:    #CACACA;  
+}
+input.vs-ac-input:focus {
+  background-color: #f9f9f9;
+  outline: none;
+}
+input.vs-ac-input:active {
+  outline: none;
+}
+input.vs-ac-input-selected {
+  background: #909090;
+  color: white;
+  outline: none;
+  outline-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.5rem;
+}
+button.vs-ac-close {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: .4rem;
+  margin-right: .3rem;
+  outline: none;
+  border: none;
+  background: none;
+  font-size: medium;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+}
+button.vs-ac-close:before {
+  content: 'x';
+}
+
+div.vs-ac-list {
+  position: absolute;
+  width: -webkit-fill-available;
+  margin-top: 3.32rem;
+}
+div.vs-ac-list-container {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-width: 0px 1px 1px 1px;
+  border-radius: 0 0 .2rem .2rem;
+  min-height: 10rem;
+  max-height: 10rem;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: flex 2s ease;
+  background: white;
+  z-index: 1;
+}
+div.vs-ac-list select {
+  background: #ffffff;
+  border: none;
+  overflow: auto;
+  overflow-x: hidden;
+  outline: none;
+  width: -webkit-fill-available;
+}
+div.vs-ac-list select option {
+  padding: 1rem .5rem 2rem .5rem;
+  position: relative;
+  white-space: pre-wrap;
+}
+div.vs-ac-list select option:hover {
+  background: #e6e6e6;
+  transition: all .3s ease;
+}
+div.vs-ac-list select option:after {
+  content: attr(data-description);
+  position: absolute;
+  bottom: 1rem;
+  left: .5rem;
+  font-size: smaller;
+  color: #bdbdbd;
+  font-style: italic;
+}
+div.vs-ac-list-container.loading {
+  background: #f9f9f9;
+}
+div.vs-ac-list-container.loading select{
+  background: #f9f9f9;
+}
+div.vs-ac-loader {
+  border: 4px solid #e2e2e2;
+  border-top: 4px solid #aeb1b3;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: 1;
+  right: 50%;
+  top: 40%;
+  align-self: center;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.test {
+  padding: 0;
+  margin: 0;  
+}
+.test li  {
+  list-style: none;
+}
+.test a{
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: .5rem;
+}
+.test a:hover{
+  background: #e6e6e6;
+  transition: all .3s ease;
+}
+ul#vs-ac-list li a:focus {
+  background: red;
+}
+ul#vs-ac-list li a:disabled {
+  background: blue;
+}
+input#vs-ac-selected-inpu:focus {
+  background: red;
+}
+.disabled{
+  pointer-events: none; 
+  background-color: rgba(10, 10, 10, 0.05); 
+  font-style: italic; 
+  color: rgba(10, 10, 10, 0.5);
+}

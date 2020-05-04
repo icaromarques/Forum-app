@@ -1,0 +1,42 @@
+<template>
+  <require from="../visual-auto-complete/visual-auto-complete"></require>
+  <require from="../visual-spinner/visual-spinner"></require>
+  <h4>TESTER</h4>
+  <visual-auto-complete query.two-way="query" 
+                        request.bind="request" 
+                        entity.two-way="entity"
+                        description.one-way="description" 
+                        label.one-way="label" 
+                        placeholder.one-way="placeholder" 
+                        empty-result.one-way="emptyResult"
+                        on-success-executed.bind="afterRequest"
+                        limit.one-way="limit"
+                        status-property.two-way="statusProperty"
+                        display-property.two-way="displayProperty"
+                        response-property.one-way="responseProperty"
+                        on-selected-callback.call="onSelected({selected})"
+                        style.bind="style"></visual-auto-complete>
+
+  <visual-auto-complete query.two-way="query1" 
+                        request.bind="request" 
+                        entity.two-way="entity1"
+                        description.one-way="description1" 
+                        label.one-way="label1" 
+                        placeholder.one-way="placeholder1" 
+                        empty-result.one-way="emptyResult1"
+                        on-success-executed.bind="afterRequest"
+                        limit.one-way="limit1"
+                        status-property.two-way="statusProperty"
+                        display-property.two-way="displayProperty1"
+                        response-property.one-way="responseProperty1"
+                        style.bind="style"></visual-auto-complete>
+
+  <input type="submit" onsubmit="window.location.reload();">
+
+  <div class="caio scroll" style="height:30vh; width:30vw; background-color:red; position:relative; margin: 1rem 0;">
+    <input type="text" style="margin: 1rem 0;">
+    <input type="text" style="margin: 1rem 0;">
+    <input type="text" disabled="true" style="margin: 1rem 0;">
+    <visual-spinner loading.bind="loading" custom-class.bind="spinnerClass" ref="spinner"></visual-spinner>
+  </div>
+</template>
