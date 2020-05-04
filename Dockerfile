@@ -35,7 +35,7 @@ RUN curl --silent --show-error --location --fail --retry 3 --output /tmp/google-
   && google-chrome --version
 
 
-RUN npm install -g aurelia-cli@^1.2.0
+RUN npm install -g aurelia-cli@1.3.1
 
 RUN npm install typings -g
 
@@ -43,6 +43,15 @@ WORKDIR /app
 
 # install dependencies
 COPY ./*.json  ./
+
+COPY external /app/external
+COPY assets/dist/ /app/assets/dist/
+COPY assets/fonts/ /app/assets/fonts/
+COPY assets/icons/ /app/assets/dist/
+COPY locales /app/locales
+
+RUN rm -rf /app/package-lock.json
+
 RUN npm install
 
 COPY aurelia_project  ./aurelia_project
@@ -59,13 +68,6 @@ COPY src ./src
 # Copy test, unit & e2e
 COPY test ./test
 
-
-# RUN UNIT TESTS
-RUN au test
-
-# RUN E2E TESTS
-RUN npm run e2e:headless
-
 # build
 FROM build-stage as publish-stage
 RUN au build --env prod
@@ -75,11 +77,14 @@ FROM nginx:alpine as production-stage
 COPY nginx.conf /etc/nginx/nginx.conf
 WORKDIR /usr/share/nginx/html
 
-
-
+RUN ls -la
 
 COPY --from=publish-stage /app/scripts/ ./scripts/
 COPY --from=publish-stage /app/index.html/ .
+COPY --from=publish-stage /app/locales/ ./locales/
+COPY --from=publish-stage /app/assets/ ./assets/
+
+RUN ls -la
 
 EXPOSE 80
 
