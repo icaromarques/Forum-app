@@ -1,0 +1,163 @@
+.header-wrap {
+  line-height: 1.2rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+.header {
+  color: $secondary-color;
+}
+
+.parlamentar {
+  color: $cinza-escuro;
+}
+
+.subheader {
+  color: $cinza-claro;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+
+.second-card {
+  background: none!important;
+  cursor: default!important;
+  padding-top: 0!important;
+  &:hover {
+    background: none!important;
+    cursor: default!important;
+  }
+  &:after {
+    display: none;
+  }
+}
+.toggler-btn {
+  background: none;
+  border: none;
+  color: $secondary-color;
+  cursor: pointer;
+  font-size: 1.05rem;
+  margin-left: 1rem;
+  display: flex;
+  font-weight: 700;
+  transition: .6s ease color;
+  // margin-left: auto!important;
+  &:hover {
+    color: darken($secondary-color, 15%);
+  }
+  &:after {
+    content:'\f067';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: .25rem;
+  }
+}
+
+.red {
+  color: $error!important;
+}
+.no-top-bottom {
+  margin-bottom: 0!important;
+  margin-top: 0!important;
+}
+
+.dist-top {
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.dist-top-plus {
+  margin-top: 4rem!important;
+  margin-bottom: 4rem;
+}
+
+.btn-fase {
+  height: 2.25rem!important;
+  line-height: .2rem;
+  width: 200px!important;
+}
+
+.classe-parlamentar {
+  margin-right: .5rem;
+  margin-top: 0.3rem;
+}
+
+
+
+.tabela-presentes {
+  max-width: 100%;
+  position: relative;
+  float: left;
+  tr:nth-last-child(even) {
+  //  background: none;
+  }
+  td {
+    cursor: default!important;
+  }
+  tr {
+  background: none!important;
+  }
+  tr {
+    &:hover {
+
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .tabela-presentes {
+    tr {
+      font-size: .8rem;
+    }
+  }
+}
+
+.presenca {
+  color: $secondary-dark !important;
+}
+
+.presidente {
+  color: #9c2f2f  !important;
+}
+
+.vice {
+  color: #708dd0  !important;
+}
+
+.mesa {
+  color: #c26d04 !important;
+}
+
+.legenda-sim {
+  color: $yes !important;
+}
+
+
+.legenda-nao {
+  color: $no !important;
+}
+
+
+.legenda-branco {
+  color: $branco-texto !important;
+  border: solid 1px $cinza-escuro;
+}
+
+
+.body-wrapper {
+  max-height: 71vh;
+  overflow-y: auto;
+}
+
+.presenca-legendas {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  div {
+    margin-right: 1rem;
+  }
+}
+
+.header-padd-right {
+  padding-top: 1.8rem;
+}

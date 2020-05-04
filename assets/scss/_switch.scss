@@ -1,0 +1,72 @@
+.onoffswitch {
+    position: relative; 
+    width: 75px;
+    
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 29px;
+}
+.onoffswitch-inner {
+    display: block;
+    width: 200%; 
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; 
+    float: left; 
+    width: 75px; 
+    height: 35px; 
+    padding: 0; 
+    line-height: 37px;
+    font-size: 16px; 
+    color: white;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    font-family: 'Questrial', sans-serif;
+    content: "SIM";
+    padding-left: 10px;
+    background-color: #4AB370; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    font-family: 'Questrial', sans-serif;
+    content: "NÃO";
+    padding-right: 5px;
+    background-color: #EB5959;
+    color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; 
+    width: 30px;
+    height: 30px; 
+    margin: 2.5px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    background:  white;
+    position: absolute;
+    top: 0; bottom: 0;
+    right: 40px;
+    border-radius: 100%;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0; 
+}
+
+.onoffswitch > input {
+    border: none!important;
+}

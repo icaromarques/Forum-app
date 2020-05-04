@@ -1,0 +1,19 @@
+<template>
+<div class="blackout-bg"></div>
+    <ux-dialog class.bind="class">
+        <ux-dialog-header class="alert alert-warning question-mark">
+            <h4 class="modal-title"><span><i class="fa fa-exclamation-triangle"></i></span> ${title}</h4>     
+        </ux-dialog-header>
+
+        <ux-dialog-body>
+            <div innerhtml.bind="message"></div>
+        </ux-dialog-body>
+
+        <ux-dialog-footer>
+            <button class="ux-dialog-button confirm confirm-yes" click.trigger = "controller.ok('SIM')" attach-focus="true">Sim</button>
+            <button class="ux-dialog-button cancel confirm-no"  click.trigger = "controller.cancel()">Não</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+
+
+</template>

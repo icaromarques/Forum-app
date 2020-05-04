@@ -1,0 +1,24 @@
+<template>
+  <div class="modal-content">
+      <window-header title="${title}"  show-close.bind="true" ></window-header>
+    <div class="modal-body">
+       <div class="container -align-center">
+         <div class="row">
+           <div class="col-md-12">
+           </div>
+         </div>
+           <div class="row">
+             <div class="col-md-10">
+               <form-item label="${inputLabel}" required prop="input1">
+                 <input  class='form-control' type="${tipo}" placeholder="${modal.default.input | t }" value.bind="input1" >
+               </form-item>
+             </div>
+           </div>
+       </div>
+    </div>
+
+    <window-footer>
+       <button type="button" class="btn-form ${buttonImage}" t="${button}" click.delegate="onClick()"></button>
+    </window-footer>
+  </div>
+</template>

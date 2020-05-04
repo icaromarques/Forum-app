@@ -1,0 +1,76 @@
+<template>
+  <visual-spinner loading.bind="postService.isInUse" fullscreen.bind="true" custom-class.bind="{overlay: 'vs-spinner-container', spinner: 'vs-spinner' }"></visual-spinner>
+
+  <div class="d-flex flex-row  justify-content-between">
+    <header titulo=" ${'forum.questions' | t}" class="pl-5"></header>
+
+    <button type="button"  click.delegate="newQuestion()" t="forum.createQuestion" class="btn-form btn-add pull-right mr-5"
+                                 title="${'forum.createQuestion' | t}" ></button>
+  </div>
+
+  <div class="container-fluid app d-flex flex-row-reverse ">
+    <div class="tiny-container w-100">
+      <div class="padding-sides">
+        <div class="container-fluid">
+          <div class="forum-filters d-flex flex-column ">
+
+            <header subtitulo=" ${'forum.filters.filter' | t}"></header>
+            
+            <form-item label="forum.filters.text" prop="text">
+              <input type="text" name="text" value.bind="filters.text" class="form-control clean-form"
+                placeholder=" ${'forum.filters.text' | t}" maxlength="200">
+            </form-item>
+
+            <form-item label="forum.filters.withoutAnswers">
+              <div class="onoffswitch">
+                <input type="checkbox" name="padrao" class="onoffswitch-checkbox" value.bind="filters.withoutAnswers"
+                  id="myonoffswitch" checked.bind="filters.withoutAnswers">
+                <label class="onoffswitch-label" for="myonoffswitch">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+                </label>
+              </div>
+            </form-item>
+
+              <button type="button" class="btn-form btn-clean" click.delegate="onClickClearFilters()">${'forum.filters.clear' | t}</button>
+              <button type="button" class="btn-form btn-search" click.delegate="onClickFilter()">${'forum.filters.find' |t}</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="perfect-scroll" class="larger-container flex-grow-1" infinite-scroll="callback.call: findAllQuestions(); active.bind: scrollActive; noMorePages.bind: noMorePages">
+      <div class="padding-sides">
+        <div if.bind="questions.posts.length === 0">
+          <header subtitulo="${'forum.filters.nodata' | t}"></header>
+        </div>
+        <div id="questions" repeat.for="question of questions.posts" if.bind="questions.posts.length > 0">
+          <div class="forum-card " id="heading${question.id}">
+            <div class="forum-card-esq">
+              <div class=forum-card-username> ${'post.author' | t}:
+                <b>${question.user.name}</b>
+              </div>
+              <span class="forum-card-username">${'post.creationDate' | t}:
+                <span>${question.creationDate| dateFormat:'DD/MM/YYYY HH:mm'}</span>
+              </span>
+            </div>
+            <div class="forum-card-dir">
+              <span class="forum-card-title forum-card-textcolor"> ${question.title}</span>
+              <span class="forum-card-text forum-card-textcolor"> ${question.description}</span>
+              <div class="forum-card-detail forum-card-textcolor d-flex flex-row justify-content-between">
+                <div class="upvotes" click.delegate="upVote(question)">
+                  <i class="fas fa-thumbs-up"></i>
+                  <b> ${question.likesCount} </b>
+                </div>
+                <div class="upvotes" click.delegate="detail(question)">
+                  <b>${question.answersCount}</b> ${'post.answersCount' | t}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

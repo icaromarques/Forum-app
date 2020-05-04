@@ -1,0 +1,7 @@
+<template>
+  <div class="modal-header header-primary ${!subtitle ? 'no-sub' : ''}" role="dialog">
+    <h4 class="modal-title" t="${title}"></h4>
+    <span class="modal-subtitle" if.bind="subtitle">${subtitleHint}: ${subtitle}</span>
+    <button  id='btn1' if.bind="showClose" type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+</template>

@@ -1,0 +1,74 @@
+<template>
+  <visual-spinner loading.bind="postService.isInUse" fullscreen.bind="true" custom-class.bind="{overlay: 'vs-spinner-container', spinner: 'vs-spinner' }"></visual-spinner>
+  <div class="d-flex flex-row  justify-content-between">
+    <header titulo=" ${'forum.questions' | t}" class="pl-5"></header>
+
+    <button type="button"  click.delegate="backToForum()" t="back" class="btn-form btn-back pull-right mr-5"
+    title="back" ></button>
+  </div>
+
+  <div class="container-fluid app larger-container"  infinite-scroll="callback.call: findAllAnswers(); active.bind: scrollActive; noMorePages.bind: noMorePages">
+      <div class="padding-sides">
+          <div id="question" class="card accordion" >
+            <div class="question-card-header" id="headingQuestion" aria-expanded="true">
+              <div class="question-card">  
+                <div class="question-card-esq">                      
+                    <div class="question-card-avatar"  css="background: ${question.user.avatarColor}">
+                      <div>${question.user.avatarName}</div> 
+                    </div>
+                    <div class=question-card-username> 
+                      <b>${question.user.name}</b>
+                    </div>
+                    <span class="question-card-username">                          
+                      <span>${question.user.creationDate| dateFormat:'DD/MM/YYYY HH:mm'}</span>
+                    </span>                        
+                </div>
+                <div class="question-card-dir">                    
+                    <div class="d-flex flex-row justify-content-between">
+                      <span class="question-card-title question-card-textcolor">  ${question.title}</span>
+                      <b class="question-card-title forum-card-textcolor pr-2"> ${question.creationDate | dateFormat:'DD/MM/YYYY HH:mm'}</b>
+                    </div>
+                    <span class="question-card-text question-card-textcolor">  ${question.description}</span>
+                    <div class="question-card-detail question-card-textcolor">
+                      <div class="flex-grow-1 answer" click.delegate="onClickAnswer()" >
+                        <b class="pointer">${'post.answer' | t}</b> 
+                      </div>
+                     
+                    </div>
+              
+              
+                </div>
+              </div>
+            </div>
+            <div class="question-card-body">
+              <div class="question-card" repeat.for="answer of answers.posts">  
+                <div class="question-card-esq">                      
+                    <div class="question-card-avatar"  css="background: ${answer.user.avatarColor}">
+                      <div>${answer.user.avatarName}</div> 
+                    </div>
+                    <div class=question-card-username> 
+                      <b>${answer.user.name}</b>
+                    </div>
+                    <span class="question-card-username">                          
+                      <span>${answer.user.creationDate| dateFormat:'DD/MM/YYYY HH:mm'}</span>
+                    </span>                        
+                </div>
+                <div class="question-card-dir">
+                    <div class="d-flex flex-row justify-content-between">
+                      <span class="question-card-title question-card-textcolor">  ${answer.title}</span>
+                      <b class="question-card-title forum-card-textcolor pr-2"> ${answer.creationDate | dateFormat:'DD/MM/YYYY HH:mm'}</b>
+                    </div>
+
+                    <span class="question-card-text question-card-textcolor">  ${answer.description}</span>
+                    <div class="question-card-detail question-card-textcolor d-flex flex-row justify-content-end">
+                      <div class="upvotes" click.delegate="upVote(answer)">
+                        <i class="fas fa-thumbs-up"></i>
+                        <b> ${answer.likesCount} </b>
+                      </div>                      
+                    </div>
+              </div>
+            </div>
+          </div> 
+      </div>
+    </div>
+</template>

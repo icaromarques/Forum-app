@@ -1,0 +1,115 @@
+//Variables 
+
+$small-radius: 4px;
+
+.forum-filters{
+  margin-top: .1rem;
+  display: flex;
+  align-items: left;
+  line-height: 1rem;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  background: white;
+  transition: all .6s ease;
+  height: 65vh;;
+}
+
+.forum-card {
+  margin-bottom:.5rem;
+  margin-top: .1rem;
+  color: lighten($txt-forum-card, 15%);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  line-height: 1rem;
+  padding: .5rem;
+  box-sizing: border-box;
+  box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+  background: white;
+  transition: all .6s ease;
+  &:hover {
+    box-shadow: 2px 4px 7px rgba(0,0,0,.5);
+  }
+}
+.forum-card-esq {
+  display: flex;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  flex-direction: column;
+  flex-basis: 25%;
+  height: 2rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.forum-card-dir {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid $inner-border-color;
+  flex-basis: 92%;
+  max-width: 92%;
+  padding-left: 1rem;
+}
+
+
+.forum-card-username {
+  font-size: .8rem;
+  padding: .25rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: normal;
+}
+
+.forum-card-title {
+  font-weight: 700;
+  margin: .25rem 0;
+}
+
+.forum-card-detail{
+  padding-top: 1rem;
+  padding-right: 0.5rem;
+
+  .upvotes {
+    color: $upvote-color!important;
+    
+    &:hover{
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+}
+
+.forum-card-text {
+  margin: .25rem 0;
+  overflow: hidden;
+  white-space: nowrap ;
+  text-overflow: ellipsis;
+  min-width: 0px;
+  max-width: 95%;
+}
+
+.forum-card-newQuestion{
+  &:hover {
+  color: $send-btn;
+}
+}
+
+.forum-card-textcolor {
+  color: $cinza-escuro;
+}
+
+
+//Media very-small (>320px)
+@media screen and (max-width: 320px) {
+  .forum-card {
+    flex-direction: column;
+  }
+  .forum-card-dir {
+    border-left: 0;
+    border-top: 1px solid $inner-border-color;
+    padding: .5rem 0;
+  }
+}
+
+ 

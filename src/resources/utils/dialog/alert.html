@@ -1,0 +1,17 @@
+<template>
+<div class="blackout-bg"></div>
+    <ux-dialog >
+        <ux-dialog-header class.bind="class">
+            <h4 class="modal-title"><span><i class="fa ${icon}"></i></span> ${title}!</h4>
+        </ux-dialog-header>
+
+        <ux-dialog-body>
+            <div innerhtml.bind="message"></div>
+        </ux-dialog-body>
+
+        <ux-dialog-footer>
+          <button class="ux-dialog-button confirm ${btn}" attach-focus="true" click.trigger = "controller.ok(message)">Ok</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+
+</template>

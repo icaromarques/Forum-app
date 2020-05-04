@@ -1,0 +1,55 @@
+{
+  "campoInvalido" : "Campo obrigatório",
+  "logout" : "Logout",
+  "login" : "Login",
+  "back" : "Voltar",
+  "forum": {
+    "questions": "Fórum de perguntas",
+    "createQuestion" : "Nova pergunta",
+    "filters": {
+      "filter": "Filtros de pesquisa",
+      "text": "Texto da pergunta",
+      "description": "Descrição da pergunta",
+      "withoutAnswers": "Somente perguntas não respondidas",
+      "clear" : "Limpar filtros",
+      "find" : "Filtrar dados",
+      "nodata" : "Não foram encontrados dados para critérios de pesquisa selecionados"
+     
+    }
+  },
+  "post": {
+    "upVotes": "upVotes",
+    "answersCount": "Respostas (Ver)",
+    "answer": "Responder",
+    "creationDate": "Data de criação",
+    "author": "Autor",
+    "modal" :  {
+      "question" : {
+        "title": "Cadastro de nova pergunta no fórum",
+        "inputTitle" : "Título da pergunta",
+        "inputDescription" : "Descrição da pergunta",
+        "buttonSave" : "Cadastrar",
+        "buttonClean" : "Limpar"      
+      },
+      "answer" : {
+        "title": "Responda à pergunta de ",
+        "inputTitle" : "Título da resposta",
+        "inputDescription" : "Descrição da resposta",
+        "buttonSave" : "Responder",
+        "buttonClean" : "Limpar"      
+      }      
+    }
+
+  },
+  "user": {
+    "modal" : {
+      "title" : "Registre-se",
+      "inputLabel" : "Registre seu nome para efetuar login",
+      "button": "Registrar",
+      "buttonImage": "btn-userCheck",
+      "empty" : "Nome de usuário vazio não registrado."
+    },
+    "name": "Nome",
+    "creationDate": "Data de criação"
+  }
+}

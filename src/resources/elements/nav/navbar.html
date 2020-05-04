@@ -1,0 +1,23 @@
+<template>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top top-bar nav-item">
+    <i class="fas fa-comment-dots logo"></i><a class="brand text-white logo">Forum</a>  
+    <div class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0">
+      <div class="logged-user">
+        <i class="fas fa-user fa-login mt-0" if.bind="user && user !== ''"></i>        
+        <span class="logged-text">${sessionHandler.loggedUser}</span>
+      </div>
+    </div>
+    <div if.bind="sessionHandler.loggedUser && sessionHandler.loggedUser != ''">
+      <button class="log-off-out" click.delegate="onClickLogout()">
+        <span tooltip="options.bind: {placement: 'left'}" title="${'logout' | t}">${'logout' | t}</span>
+        <i class="fa fa-times"></i>
+      </button>
+      </div>
+      <div if.bind="!sessionHandler.loggedUser ||  sessionHandler.loggedUser === ''">
+        <button class="log-off-out" click.delegate="onClickLogin()">
+          <span tooltip="options.bind: {placement: 'left'}" title="${'login' | t}">${'login' | t}</span>
+          <i class="fas fa-user-check"></i>
+        </button>
+        </div>
+  </nav>
+</template>

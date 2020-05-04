@@ -1,0 +1,197 @@
+.alert-danger {
+    margin: 0!important;
+    text-align: center!important;
+    color: lighten($cinza-escuro, 15%)!important;
+    background: none!important;
+    border: none!important;
+    padding-bottom: .5rem!important;
+    padding-top: 3rem!important;
+    line-height: 1rem!important;
+        i {
+            display: none!important;
+        }
+        &:before {
+            font-size:4rem;
+             font-family: "Font Awesome 5 Free";
+            content: "\f057";
+            color: $error;
+        }
+}
+
+
+
+.modal-title, .alert-success, .alert-warning {
+    font-size: 1.5rem!important;
+}
+
+ux-dialog>ux-dialog-body{
+    text-align: center!important;
+    padding-top: 0!important;
+    font-size: 1.25rem!important;
+}
+
+ux-dialog {
+    margin-top: -10%!important;
+    min-width: 400px!important;
+    overflow: hidden!important;
+    padding: 0!important;
+    border: none!important;
+}
+
+ux-dialog>ux-dialog-footer {
+    padding: 0!important;
+}
+
+ux-dialog>ux-dialog-footer button {
+    background: $alert!important;
+    margin: 0!important;
+    padding: .5rem!important;
+    height: 3.5rem!important;
+    color: $branco-texto!important;
+    font-size: 1.25rem!important;
+    border: none!important;
+    width: 100%!important;
+    border-radius: 0!important;
+    transition: all 1s ease!important;
+        &:focus {
+            outline: none!important;
+        }
+         &:hover {
+             background: darken($alert, 15%)!important;
+         }
+}
+
+.alert-success {
+    margin: 0!important;
+    text-align: center!important;
+    color: lighten($cinza-escuro, 15%)!important;
+    background: none!important;
+    border: none!important;
+    padding-bottom: .5rem!important;
+    padding-top: 3rem!important;
+    line-height: 1rem!important;
+        i {
+            display: none!important;
+        }
+        &:before {
+            font-size:4rem;
+            font-family: "Font Awesome 5 Free";
+            content: "\f058";
+            color: $sucess;
+        }
+}
+
+.alert-success-button {
+            background:$sucess!important;
+                &:hover {
+                    background: darken($sucess, 10%);
+                }
+        }
+
+.alert-success-error {
+            background:$error!important;
+                &:hover {
+                    background: darken($error, 10%);
+                }
+        }
+
+
+.alert-warning {
+            margin: 0!important;
+            text-align: center!important;
+            color: lighten($cinza-escuro, 15%)!important;
+            background: none!important;
+            border: none!important;
+            padding-bottom: .5rem!important;
+            padding-top: 3rem!important;
+            line-height: 1rem!important;
+                i {
+                    display: none!important;
+                }
+                &:before {
+                    font-size:4rem;
+                   font-family: "Font Awesome 5 Free";
+                  font-weight: 900;
+                    content: "\f071";
+                    color: $alert;
+                }
+        }
+
+.btn-sucess {
+    background: $sucess!important;
+    &:hover{
+        background: darken($sucess, 10%)!important;
+    }
+}
+
+.btn-alert {
+    background: $error!important;
+    &:hover{
+        background: darken($error, 10%)!important;
+    }
+}
+
+.btn-warning {
+    background: $alert!important;
+    border: none!important;
+    &:hover{
+        background: darken($alert, 10%)!important;
+    }
+}
+
+.confirm-yes, .confirm-no {
+    width: 50%!important;
+}
+.confirm-yes {
+    background: lighten($cinza-escuro, 25%)!important;
+    &:hover {
+        background: lighten($send-btn, 5%)!important;
+    }
+}
+.confirm-no {
+    background: lighten($cinza-escuro, 18%)!important;
+    &:hover {
+        background: lighten($error, 5%)!important;
+    }
+}
+
+.blackout-bg {
+    z-index: -5;
+    background: rgba(0,0,0, .7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+.question-mark {
+    &:before {
+    font-size:4rem;
+    font-family: "Font Awesome 5 Free";
+    content: "\f059";
+    color: lighten($send-btn, 20%);
+    }
+}
+
+.modal-md {
+  min-width: 600px;
+}
+
+.modal-sm {
+  min-width: 400px;
+}
+
+.modal-header {
+    background: $primary-color!important;
+    color: $branco-texto!important;
+    padding: 5px 10px;
+    .close {
+        color: $branco-texto;
+        margin-top: -.1rem;
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+            color: $branco-texto;
+        }
+    }
+}

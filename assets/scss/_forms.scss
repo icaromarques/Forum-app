@@ -1,0 +1,358 @@
+
+
+//Form-item
+.form-validation-error {
+  color: $alert;
+  select:not(:focus),
+  textarea:not(:focus),
+  input:not(:focus) {
+    border-color: $alert;
+    background-color: lighten($alert, 35%)
+  }
+
+ 
+
+  .form-required {
+    &:after {
+      font-weight: 300;
+      color: $alert;
+    }
+  }
+
+  .form-error-text {
+    display: block;
+    position: absolute;
+    float: left;
+  }
+}
+
+.form-error-text {
+  margin-top: -0.65rem;
+  margin-bottom: .75rem;
+  display: none;
+  font-size: .75rem;
+  font-weight: bold;
+  font-style: italic;
+  color: $alert;
+  &:empty {
+    display: none !important;
+
+  }
+}
+
+.form-optional {
+  &:after {
+    content: ' - opcional';
+    font-style: italic;
+    font-weight: 500;
+    color: $form-hint-color;
+  }
+}
+
+.form-required {
+  &:after {
+    content: '';
+    font-weight: 600;
+    color: $form-hint-color;
+  }
+}
+
+.padding-left-1 {
+  padding-left: .5rem;
+  margin: 2rem 0 0 0;
+}
+
+.btn-create {
+  width: 5rem;
+  height: 3rem;
+  backface-visibility: none;
+  border: solid 15px $cinza-escuro;
+  vertical-align: bottom;
+  &:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "/f2ba";
+  }
+}
+
+select {
+  width: auto!important;
+  height: 2.53rem!important;
+  max-width: 100%!important;
+}
+
+.clean-form {
+  border: solid 2px lighten($cinza-escuro, 60%);
+  background: lighten($cinza-escuro, 80%);
+  transition: color 1s ease, background 1s ease;
+  margin-bottom: 1.5rem;
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+  &:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "/f2ba";
+  }
+}
+
+.select-form {
+  background: linear-gradient( lighten($secondary-color, 5%)  50%,$secondary-color 50%)!important;
+  color: $branco-texto!important;
+  width: 100%!important;
+  height: 2.3rem!important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+option {
+  color: $cinza-escuro!important;
+}
+
+.inner-button {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  border: none;
+  color: white;
+  height: 2.35rem;
+  width: 3.2rem;
+  background: $secondary-color;
+  border-radius: 0 4px 4px 0;
+  transition: background 1s ease;
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($secondary-color, 10%);
+  }
+  &:focus {
+    outline: none!important;
+  }
+}
+
+.btn-icone {
+  width: 10rem;
+  padding-left: 1.5rem;
+  border-radius: 4px;
+  border: none;
+  margin: .5rem;
+  height: 2.5rem;
+  &:hover {
+    opacity: .9;
+    cursor: pointer;
+  }
+  img {
+    width: 1.5rem;
+    float: right;
+  }
+}
+
+.btn-form {
+  width: auto;
+  padding: 0;
+  border-radius: 2px;
+  padding-left: 1.7rem;
+  padding-right: .8rem;
+  padding-top: .15rem;
+  text-align: center;
+  border: none;
+  margin: .8rem 0 .5rem .8rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  overflow: hidden;
+  background: $secondary-color;
+  color: $branco-texto;
+  line-height: 2.35rem;
+  transition: 1s ease opacity;
+  font-weight: 100;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+  font-weight: 300;
+  transition: 1s ease background;
+  float:right;
+  //border-top: solid 1px lightgrey;
+  //border-left: solid 1px lightgrey;
+  //border-bottom: solid 1px lighten($cinza-escuro, 20%);
+  //border-right: solid 1px lighten($cinza-escuro, 20%);
+  &:after {
+    text-align: center;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f15b";
+    float: right;
+    //border-left: 1px $branco-texto solid;
+    width: 2.5rem;
+
+    height: 2.5rem;
+    // background:$secondary-color;
+    color: $branco-texto;
+  }
+  &:hover {
+    background-color: lighten($secondary-color, 5%);
+    cursor: pointer;
+  }
+  &:active {
+    outline: none;
+  }
+}
+.btn-form:disabled {
+  background: $cinza-claro;
+  color: $cinza-escuro;
+  &:hover {
+    background-color: $cinza-claro;
+    color: $cinza-escuro;
+    cursor: default;
+  }
+}
+
+.btn-red {
+  background-color: $error!important;
+  &:hover {
+    background-color: lighten($error, 5%)!important;
+    cursor: pointer;
+  }
+}
+
+.btn-new {
+  &:after {
+    content: "\f2c2";
+
+  }
+}
+
+.btn-new:disabled {
+  &:after {
+    color: $cinza-escuro;
+  }
+}
+
+
+.btn-back  {
+  &:after {
+    content: "\f3e5";
+  }
+}
+
+.btn-save  {
+  &:after {
+    content: "\f0c7";
+  }
+}
+.btn-check {
+  &:after {
+    content: "\f14a";
+  }
+}
+
+.btn-userCheck {
+  &:after{
+    content: "\f4fc"
+  }
+}
+
+.btn-add {
+  &:after {
+    content: "\f067";
+  }
+}
+
+.btn-search {
+  &:after {
+    content: "\f002";
+  }
+}
+
+.btn-clean  {
+  &:after {
+    content: "\f12d";
+  }
+}
+
+.btn-add-inline {
+  margin-top: 1.9rem;
+
+}
+
+.btn-add-inline[disabled] {
+  color: #808080;
+  background: #a9a9a9;
+  &:after {
+    color: #808080;
+    background: #a9a9a9;
+    border-left: 1px #757575 solid;
+  }
+  &:hover {
+    opacity: 1;
+    cursor: default;
+  }
+}
+
+
+.align-btn-form {
+  padding-top: 1rem;
+  padding-right: 1rem;
+}
+
+.doc-links{
+  font-weight: bold;
+  &:hover{
+    cursor: pointer;
+    color: $secondary-color;
+  }
+}
+
+.selected{
+  color: $secondary-color!important;
+}
+
+.no-margin {
+  margin: 0!important;
+}
+
+.dropdown-toggle {
+  background: linear-gradient( lighten($cinza-botoes, 5%)  50%,$cinza-botoes 50%)!important;
+}
+
+.dropdown-toggle::after {
+  margin-left: 1rem!important;
+}
+
+.mandatory {
+  color: $primary-color;
+}
+
+.dropdown-item:hover {
+  background: lightgrey!important;
+}
+
+.margin-bottom {
+  margin-bottom: 1.5rem!important;
+}
+
+.form-control {
+  border: 1px solid rgba(0, 0, 0, 0.3)!important;
+}
+
+.no-border {
+  border: none!important;
+}
+
+.no-click {
+  pointer-events: none!important;
+  &:hover {
+    pointer-events: none!important;
+
+  }
+}
+
+.border-none {
+  border:none!important
+}
+
+.top-margin-3 {
+  margin-top: 3rem!important;
+}
+
+

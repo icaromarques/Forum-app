@@ -1,0 +1,226 @@
+{
+  "name": "forum-app",
+  "type": "project:application",
+  "paths": {
+    "root": "src",
+    "resources": "resources",
+    "elements": "resources/elements",
+    "attributes": "resources/attributes",
+    "valueConverters": "resources/value-converters",
+    "bindingBehaviors": "resources/binding-behaviors"
+  },
+  "transpiler": {
+    "id": "babel",
+    "fileExtension": ".js",
+    "options": {
+      "plugins": [
+        [
+          "@babel/plugin-transform-modules-amd",
+          {
+            "loose": true
+          }
+        ]
+      ]
+    },
+    "source": [
+      "src/**/*.js"
+    ]
+  },
+  "markupProcessor": {
+    "id": "minimum",
+    "displayName": "Minimal Minification",
+    "fileExtension": ".html",
+    "source": "src/**/*.html"
+  },
+  "cssProcessor": {
+    "id": "sass",
+    "displayName": "Sass",
+    "fileExtension": ".scss",
+    "source": "assets/**/*.scss",
+    "dest" : "assets/dist"
+  },
+  "jsonProcessor": {
+    "source": [
+      "src/**/*.json"
+    ]
+  },
+  "unitTestRunner": {
+    "source": "test/unit/**/*.js"
+  },
+  "testFramework": {
+    "id": "jasmine"
+  },
+  "platform": {
+    "port": 9000,
+    "host": "localhost",
+    "open": false,
+    "index": "index.html",
+    "baseDir": ".",
+    "output": "scripts"
+  },
+  "build": {
+    "targets": [
+      {
+        "port": 9000,
+        "index": "index.html",
+        "baseDir": ".",
+        "output": "scripts"
+      }
+    ],
+    "options": {
+      "minify": "stage & prod",
+      "sourcemaps": "dev & stage",
+      "rev": "prod",
+      "cache": "dev & stage"
+    },
+    "bundles": [
+      {
+        "name": "app-bundle.js",
+        "source": [
+          "**/*.{js,json,css,html}"
+        ]
+      },
+      {
+        "name": "vendor-bundle.js",
+        "prepend": [
+          "node_modules/whatwg-fetch/dist/fetch.umd.js",
+          "node_modules/promise-polyfill/dist/polyfill.min.js",
+          "node_modules/requirejs/require.js"
+        ],
+        "dependencies": [
+          "aurelia-binding",
+          "aurelia-bootstrapper",
+          "aurelia-dependency-injection",
+          "aurelia-event-aggregator",
+          "aurelia-framework",
+          "aurelia-history",
+          "aurelia-history-browser",
+          "aurelia-loader",
+          "aurelia-loader-default",
+          "aurelia-logging",
+          "aurelia-logging-console",
+          "aurelia-metadata",
+          "aurelia-pal",
+          "aurelia-pal-browser",
+          "aurelia-path",
+          "aurelia-polyfills",
+          "aurelia-route-recognizer",
+          "aurelia-router",
+          "aurelia-task-queue",
+          "aurelia-templating",
+          "aurelia-templating-binding",
+          "aurelia-fetch-client",
+          "jquery",
+          {
+            "name": "jquery-mask-plugin",
+            "path": "../node_modules/jquery-mask-plugin/dist",
+            "main": "jquery.mask"
+          },
+          {
+            "name": "moment",
+            "path": "../node_modules/moment",
+            "main": "moment"
+          },
+          {
+            "name": "duration",
+            "path": "../node_modules/moment-duration-format/lib",
+            "main": "moment-duration-format"
+          },
+          {
+            "name": "snackbar",
+            "path": "../node_modules/node-snackbar/dist",
+            "main": "snackbar",
+            "resources": [
+              "snackbar.css"
+            ]
+          },
+          {
+            "name": "visual-validation",
+            "path": "../node_modules/visual-validation/dist/commonjs",
+            "main": "index",
+            "resources": [
+              "**/*.js"
+            ]
+          },
+          {
+            "name": "visual-general-components",
+            "path": "../node_modules/visual-general-components/dist/commonjs",
+            "main": "index",
+            "resources": [
+              "**/*.js",
+              "**/*.html",
+              "**/*.css"
+            ]
+          },
+          {
+            "name": "aurelia-templating-resources",
+            "path": "../node_modules/aurelia-templating-resources/dist/amd",
+            "main": "aurelia-templating-resources"
+          },
+          {
+            "name": "aurelia-templating-router",
+            "path": "../node_modules/aurelia-templating-router/dist/amd",
+            "main": "aurelia-templating-router"
+          },
+          {
+            "name": "aurelia-dialog",
+            "path": "../node_modules/aurelia-dialog/dist/amd",
+            "main": "aurelia-dialog"
+          },
+          {
+            "name": "aurelia-infinite-scroll",
+            "path": "../node_modules/aurelia-infinite-scroll/dist/amd",
+            "main": "aurelia-infinite-scroll"
+          },
+          {
+            "name": "i18next",
+            "path": "../node_modules/i18next/dist/umd",
+            "main": "i18next"
+          },
+          {
+            "name": "aurelia-i18n",
+            "path": "../node_modules/aurelia-i18n/dist/amd",
+            "main": "aurelia-i18n"
+          },
+          {
+            "name": "i18next-xhr-backend",
+            "path": "../node_modules/i18next-xhr-backend/dist/umd",
+            "main": "i18nextXHRBackend"
+
+          },
+          {
+            "name": "aurelia-testing",
+            "path": "../node_modules/aurelia-testing/dist/amd",
+            "main": "aurelia-testing",
+            "env": "dev"
+          },
+          {
+            "name": "perfect-scrollbar",
+            "path": "../node_modules/perfect-scrollbar/dist/",
+            "main": "perfect-scrollbar",
+            "resources": [
+              "../css/perfect-scrollbar.css"
+            ]
+          },
+          "text"
+        ]
+      }
+    ],
+    "loader": {
+      "type": "require",
+      "configTarget": "vendor-bundle.js",
+      "includeBundleMetadataInConfig": "auto",
+      "plugins": [
+        {
+          "name": "text",
+          "extensions": [
+            ".html",
+            ".css"
+          ],
+          "stub": true
+        }
+      ]
+    }   
+  },
+  "packageManager": "npm"
+}

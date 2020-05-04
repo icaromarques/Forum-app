@@ -1,0 +1,38 @@
+<template>
+  <div class="modal-content">
+      <window-header title="${modal.title}"  show-close.bind="true" ></window-header>
+    <div class="modal-body">
+       <div class="container -align-center">        
+         <div class="row">
+            <div class="col-md-10">
+              <header subtitulo="${user}"></header>
+            </div>
+          </div>
+           <div class="row">
+             <div class="col-md-10">
+               <form-item label="${modal.inputTitle}"  prop="title" required><span class="mandatory">*</span>
+                 <input  class='form-control' type="text" name="title" placeholder="${modal.inputTitle | t }" value.bind="title & validar" >
+               </form-item>
+             </div>
+           </div>
+
+           <div class="row">
+            <div class="col-md-10">
+              <form-item label="${modal.inputDescription}"  prop="description"><span class="mandatory">*</span>
+                 <textarea placeholder="${modal.inputDescription | t }" prop="description" value.bind="description & validar" 
+                 class="form-control clean-form" maxlength="4000" ></textarea>
+           
+              </form-item>
+            </div>
+          </div>
+    </div>
+
+    <window-footer>
+      <div class="d-flex flex-row justify-content-between">
+        
+       <button type="button" class="btn-form btn-add" t="${modal.buttonSave}" click.delegate="onClick()"></button>
+       <button type="button" class="btn-form btn-clean" t="${modal.buttonClean}" click.delegate="onClear()"></button>
+      </div>
+    </window-footer>
+  </div>
+</template>
