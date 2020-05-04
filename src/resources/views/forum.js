@@ -83,10 +83,11 @@ export class Forum extends BasicView {
           this.questions.posts = this.questions.posts.concat(questions.posts);
           this.questions.page = questions.page;
           this.questions.totalPages = questions.totalPages;
-
+          this.setTimezone();
           if (this.questions.totalPages > 0 && this.questions.page == this.questions.totalPages) {
             this.scrollActive = false;
           }
+          
           this.scrollBar.update();
         });
 
@@ -102,9 +103,11 @@ export class Forum extends BasicView {
           this.questions.posts = questions.posts;
           this.questions.page = questions.page;
           this.questions.totalPages = questions.totalPages;
+          this.setTimezone();
           if (this.questions.totalPages > 0 && this.questions.page == this.questions.totalPages) {
             this.scrollActive = false;
           }
+         
           this.scrollBar.update();
         });
 
@@ -156,6 +159,7 @@ export class Forum extends BasicView {
 
     }
   }
+
 
   createNewQuestion(newQuestion) {
     this.postService.create(newQuestion).then(() =>
@@ -220,5 +224,12 @@ export class Forum extends BasicView {
 
   setDirection(direction){
     this.direction = direction;
+  }
+
+  setTimezone(){
+    this.questions.posts.forEach(question => {
+      question.creationDate = moment.utc( question.creationDate).local();
+      
+    });
   }
 }

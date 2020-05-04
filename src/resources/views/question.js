@@ -41,9 +41,10 @@ export class Question extends BasicView {
   findQuestionById(id) {
     this.postService.findById(id).then(question => {
       this.question = question;
+      this.question.user.creationDate = moment.utc(this.question.user.creationDate).local();
+      this.question.creationDate = moment.utc(this.question.creationDate).local();
       let avatarNames = this.question.user.name.split(" ");
       this.question.user.avatarName = avatarNames[0].substring(0, 1);
-      console.log(this.question);
       this.findAllAnswers();
     });
   }
@@ -57,13 +58,11 @@ export class Question extends BasicView {
           this.answers.page = answers.page;
           this.answers.totalPages = answers.totalPages;
           this.updateNames(this.answers);
-
+          this.setTimezone();
           if (this.answers.totalPages > 0 && this.answers.page == this.answers.totalPages) {
             this.scrollActive = false;
           }
           this.scrollBar.update();
-
-          console.log(this.answers);
         });
 
 
@@ -74,11 +73,11 @@ export class Question extends BasicView {
           this.answers.page = answers.page;
           this.answers.totalPages = answers.totalPages;
           this.updateNames(this.answers);
+          this.setTimezone();
           if (this.answers.totalPages > 0 && this.answers.page == this.answers.totalPages) {
             this.scrollActive = false;
           }
           this.scrollBar.update();
-          console.log(this.answers);
         });
 
     } else if (this.answers.totalPages > 0 && this.answers.page == this.answers.totalPages) {
@@ -180,6 +179,15 @@ export class Question extends BasicView {
     }
     ).catch(err => {
      this.dialogHandler.showAlert(err.message, 'error');
+    });
+  }
+
+  
+  setTimezone(){
+  
+    this.answers.posts.forEach(question => {
+      question.creationDate = moment.utc( question.creationDate).local();
+      question.user.creationDate = moment.utc( question.user.creationDate).local();
     });
   }
 }

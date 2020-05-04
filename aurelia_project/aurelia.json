@@ -127,6 +127,12 @@
             "main": "moment-duration-format"
           },
           {
+            "name": "moment-timezone",
+            "path": "../node_modules/moment-timezone",
+            "main": "moment-timezone",
+            "deps": ["moment"]
+          },
+          {
             "name": "snackbar",
             "path": "../node_modules/node-snackbar/dist",
             "main": "snackbar",
@@ -136,7 +142,7 @@
           },
           {
             "name": "visual-validation",
-            "path": "../node_modules/visual-validation/dist/commonjs",
+            "path": "../external/visual-validation/dist/commonjs",
             "main": "index",
             "resources": [
               "**/*.js"
@@ -144,7 +150,7 @@
           },
           {
             "name": "visual-general-components",
-            "path": "../node_modules/visual-general-components/dist/commonjs",
+            "path": "../external/visual-general-components/dist/commonjs",
             "main": "index",
             "resources": [
               "**/*.js",
