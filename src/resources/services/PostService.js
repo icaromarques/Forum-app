@@ -13,14 +13,14 @@ export class PostService extends GenericService {
     this.http = this.configureHTTP(http);
   }
 
-  findAllQuestions(page,maxValue,text,notAnsewered){
+  findAllQuestions(page,maxValue,text,notAnsewered,direction,sortField){
     return new Promise((resolve, reject) => {
       this.defaultFetchHandler(
-        this.http.fetch(this.url + '/questions?parameters=0'+
-        (page != null? '&page='+page : '' ) + 
-        (maxValue != null? '&maxValue='+maxValue : '') +
+        this.http.fetch(this.url + '/questions?&page='+page + '&maxValue='+maxValue  +
         (text != null? '&text='+text : '') +
-        (notAnsewered != null? '&notAnsewered='+notAnsewered : '') , {
+        (notAnsewered != null? '&notAnsewered='+notAnsewered : '') +
+        (direction != null? '&direction='+direction : '') +
+        (sortField != null? '&sortField='+sortField : '') , {
           method: this.METHODS.GET_METHOD
         }),
         resolve, reject

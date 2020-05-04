@@ -13,6 +13,8 @@ export class Forum extends BasicView {
   filters = [];
   scrollActive = true;
   noMorePages = false;
+  sortField = 'creationDate';
+  direction = 'DESC';
 
   constructor(postService, dialogHandler, sessionHandler, postTypeEnum, ...rest) {
     super(...rest);
@@ -50,6 +52,8 @@ export class Forum extends BasicView {
     this.scrollBar.update();
     this.filters.text = null;
     this.filters.withoutAnswers = false;
+    this.sortField = 'creationDate';
+    this.direction = 'DESC';
 
     this.findAllQuestions();
 
@@ -68,7 +72,13 @@ export class Forum extends BasicView {
 
     if (this.questions.totalPages > 0 && this.questions.page < this.questions.totalPages) {
 
-      this.postService.findAllQuestions(this.questions.page + 1, 7, this.filters.text ? this.filters.text : null, this.filters.withoutAnswers)
+      this.postService.findAllQuestions(this.questions.page + 1,
+         7,
+         this.filters.text ? this.filters.text : null,
+         this.filters.withoutAnswers,
+         this.direction ? this.direction : null,
+         this.sortField ? this.sortField : null
+         )
         .then((questions) => {
           this.questions.posts = this.questions.posts.concat(questions.posts);
           this.questions.page = questions.page;
@@ -82,7 +92,12 @@ export class Forum extends BasicView {
 
 
     } else if (this.questions.totalPages == undefined) {
-      this.postService.findAllQuestions(0, 7, this.filters.text ? this.filters.text : null, this.filters.withoutAnswers)
+      this.postService.findAllQuestions(0, 
+        7,
+        this.filters.text ? this.filters.text : null, 
+        this.filters.withoutAnswers,
+         this.direction ? this.direction : null,
+         this.sortField ? this.sortField : null)
         .then((questions) => {
           this.questions.posts = questions.posts;
           this.questions.page = questions.page;
@@ -197,5 +212,13 @@ export class Forum extends BasicView {
         this.dialogHandler.showAlert(err.message, 'error');
       });
     }
+  }
+
+  setField(field){
+    this.sortField = field;
+  }
+
+  setDirection(direction){
+    this.direction = direction;
   }
 }

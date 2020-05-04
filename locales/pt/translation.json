@@ -17,8 +17,14 @@
      
     }
   },
+  "sort" : {
+    "title" : "Ordenação da lista",
+    "description" : "Selecione o campo e a direção da ordenação, e clique em \"filtrar dados\" "
+  },
   "post": {
+    "default" : "Padrão",
     "upVotes": "upVotes",
+    "answers" : "Respostas",
     "answersCount": "Respostas (Ver)",
     "answer": "Responder",
     "creationDate": "Data de criação",

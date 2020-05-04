@@ -41,6 +41,48 @@
     </div>
     <div id="perfect-scroll" class="larger-container flex-grow-1" infinite-scroll="callback.call: findAllQuestions(); active.bind: scrollActive; noMorePages.bind: noMorePages">
       <div class="padding-sides">
+        
+        <div class="pb-1" title="${'sort.description' | t}">
+          <h3>${'sort.title' | t} </h3>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between">
+          <div class="btn-group btn-group-toggle d-flex btn-check-painel radio pr-2" data-toggle="buttons">
+            <label class="btn btn-secondary ${sortField === 'creationDate'? 'active' : ''}" click.delegate="setField('creationDate')">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked="${sortField === 'creationDate'}">
+              <i class="fas fa-clock"></i>
+              <b> 
+                ${'post.creationDate' | t}           
+              </b>
+            </label>
+            <label class="btn btn-secondary ${sortField === 'likes'? 'active' : ''}" click.delegate="setField('likes')">
+              <input type="radio" name="options" id="option2" autocomplete="off" checked="${sortField === 'likes'}" >
+              <i class="fas fa-thumbs-up"></i>
+              <b> 
+                ${'post.upVotes' | t}            
+              </b>
+            </label>
+            <label class="btn btn-secondary ${sortField === 'answers'? 'active' : ''}" click.delegate="setField('answers')">
+              <input type="radio" name="options" id="option3" autocomplete="off" checked="${sortField === 'answers'}" >
+              <i class="fas fa-comments"></i>
+              <b> 
+                ${'post.answers' | t}            
+              </b>
+            </label>
+          </div>
+          <div class="btn-group btn-group-toggle d-flex btn-check-painel radio" data-toggle="buttons">
+            <label class="btn btn-secondary ${direction === 'ASC'? 'active' : ''}" click.delegate="setDirection('ASC')">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked="${sortField === 'ASC'}">
+              <i class="fas fa-sort-numeric-down"></i>
+              
+            </label>
+            <label class="btn btn-secondary ${direction === 'DESC'? 'active' : ''}" click.delegate="setDirection('DESC')">
+              <input type="radio" name="options" id="option2" autocomplete="off" checked="${sortField === 'ASC'}" >
+              <i class="fas fa-sort-numeric-up"></i>
+            </label>           
+            
+          </div>
+        </div>  
         <div if.bind="questions.posts.length === 0">
           <header subtitulo="${'forum.filters.nodata' | t}"></header>
         </div>
