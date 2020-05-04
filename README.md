@@ -3,6 +3,12 @@
 This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
 For more information, go to https://aurelia.io/docs/cli/cli-bundler
 
+## Live DEMO
+
+A Live DEMO for you =)
+
+* [Live DEMO](https://icaro-forum-app.herokuapp.com/)
+
 ## Run dev app
 
 Run `au run`, then open `http://localhost:9000`
