@@ -24,7 +24,7 @@
     "jquery-mask-plugin": "1.14.13",
     "moment": "2.20.1",
     "moment-duration-format": "2.2.2",
-    "moment-timezone": "0.5.14",
+    "moment-timezone": "0.5.35",
     "node-snackbar": "0.1.15",
     "perfect-scrollbar": "1.5.0",
     "popper.js": "^1.16.1",
